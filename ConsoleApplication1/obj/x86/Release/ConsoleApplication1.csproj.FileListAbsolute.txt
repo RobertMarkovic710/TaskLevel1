@@ -1,0 +1,4 @@
+C:\Users\Windows7\Desktop\Visual Studio 2010 Task lvl 1\ConsoleApplication1\ConsoleApplication1\bin\Release\ConsoleApplication1.exe
+C:\Users\Windows7\Desktop\Visual Studio 2010 Task lvl 1\ConsoleApplication1\ConsoleApplication1\bin\Release\ConsoleApplication1.pdb
+C:\Users\Windows7\Desktop\Visual Studio 2010 Task lvl 1\ConsoleApplication1\ConsoleApplication1\obj\x86\Release\ConsoleApplication1.exe
+C:\Users\Windows7\Desktop\Visual Studio 2010 Task lvl 1\ConsoleApplication1\ConsoleApplication1\obj\x86\Release\ConsoleApplication1.pdb
