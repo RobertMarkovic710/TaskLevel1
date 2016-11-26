@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;         //int only numbers, string can do booth
+using System.Linq;         //int only numbers, string can do letters and numbers
 using System.Text;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace ConsoleApplication1
 {
@@ -9,24 +11,26 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please ENLIST or DISPLAY: ");
-            String ChooseOperation = (Console.ReadLine());
+            //data insert
+            String[] StudentInfo = { "StudentName", "StudentLastName", "StudentGPA", }; //variabla StudentInfo
 
-            if (ChooseOperation == "enlist" )
-            {
-                Console.WriteLine("Please write your first name: ");
-                String StudentFirstName = Console.ReadLine();
+            Console.WriteLine("Please enter your first name: ");
+            String StudentName = Console.ReadLine();
 
-                Console.WriteLine("Please write your last name: ");
-                String StudentLastName = Console.ReadLine();
+            Console.WriteLine("Please enter your last name: ");
+            String StudentLastName = Console.ReadLine();
 
-                Console.WriteLine("Please write your GPA: ");
-                String StudentGPA = Console.ReadLine();
-            }
-            else if (ChooseOperation == "display")
-            {
- 
-            }
+            Console.WriteLine("Please enter your GPA: ");
+            String StudentGPA = Console.ReadLine();
+
+            
+            //writing to text file
+            StreamWriter SW = new StreamWriter(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
+            //SW.WriteLine(StudentInfo);
+            SW.WriteLine(StudentName);
+            SW.WriteLine(StudentLastName);
+            SW.WriteLine(StudentGPA);
+            SW.Close();
         }
     }
 }
