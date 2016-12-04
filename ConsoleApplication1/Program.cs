@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;         //int only numbers, string can do letters and numbers
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
@@ -9,28 +9,39 @@ namespace ConsoleApplication1
 {
     class Program         //ctrl + F5
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            //data insert
-            String[] StudentInfo = { "StudentName", "StudentLastName", "StudentGPA", }; //variabla StudentInfo
+          Start:
+          Console.WriteLine("Please ENLIST or DISPLAY: ");
+          String ChooseOperation = (Console.ReadLine());
 
-            Console.WriteLine("Please enter your first name: ");
-            String StudentName = Console.ReadLine();
+           if (ChooseOperation == "enlist") {
+               String[] StudentInfo = new string[3];
+               Console.WriteLine("Enter your name, last name and GPA:");
 
-            Console.WriteLine("Please enter your last name: ");
-            String StudentLastName = Console.ReadLine();
+               for (int x = 0; x < 3; x++)
+               {
+                   StudentInfo[x] = Console.ReadLine();
+               }
 
-            Console.WriteLine("Please enter your GPA: ");
-            String StudentGPA = Console.ReadLine();
+               StreamWriter SW = new StreamWriter(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
 
-            
-            //writing to text file
-            StreamWriter SW = new StreamWriter(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
-            //SW.WriteLine(StudentInfo);
-            SW.WriteLine(StudentName);
-            SW.WriteLine(StudentLastName);
-            SW.WriteLine(StudentGPA);
-            SW.Close();
+               for (int x = 0; x < 3; x++)
+               {
+                   SW.WriteLine(StudentInfo[x]);
+               }
+
+               SW.Close();
+           }
+
+           else if (ChooseOperation == "display")
+           {
+               //nije napisano
+           }
+
+           else {
+               goto Start;
+           }                          //još treba napraviti display opciju i case-insensitive za krivi unos enlist operacije
         }
     }
 }
