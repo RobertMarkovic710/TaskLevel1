@@ -13,7 +13,7 @@ namespace ConsoleApplication1
         {
           Start:
           Console.WriteLine("Please ENLIST or DISPLAY: ");
-          String ChooseOperation = (Console.ReadLine());
+          String ChooseOperation = (Console.ReadLine().ToLower());
 
            if (ChooseOperation == "enlist") {
                String[] StudentInfo = new string[3];
@@ -32,14 +32,18 @@ namespace ConsoleApplication1
                }
 
                SW.Close();
+               goto Start;
            }
 
            else if (ChooseOperation == "display")
            {
-               //nije napisano
+               string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
+               //Console.WriteLine("Press any key to exit.");
+               System.Console.ReadKey();
            }
 
            else {
+               Console.WriteLine("Non-existing operation inserted");
                goto Start;
            }                          //još treba napraviti display opciju i case-insensitive za krivi unos enlist operacije
         }
