@@ -38,14 +38,21 @@ namespace ConsoleApplication1
            else if (ChooseOperation == "display")
            {
                string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
-               //Console.WriteLine("Press any key to exit.");
+               System.Console.WriteLine("Student Container displayed = ");
+
+               foreach (string line in lines)
+               {
+                   Console.WriteLine(line);
+               }
+
+               Console.WriteLine("Press any key to exit.");
                System.Console.ReadKey();
            }
 
            else {
-               Console.WriteLine("Non-existing operation inserted");
+               Console.WriteLine("Type valid operation");
                goto Start;
-           }                          //još treba napraviti display opciju i case-insensitive za krivi unos enlist operacije
+           }
         }
     }
 }
