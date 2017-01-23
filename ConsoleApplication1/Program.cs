@@ -11,48 +11,55 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args) 
         {
-          Start:
-          Console.WriteLine("Please ENLIST or DISPLAY: ");
-          String ChooseOperation = (Console.ReadLine().ToLower());
+            Console.WriteLine("Please ENLIST or DISPLAY: ");
+            String ChooseOperation = (Console.ReadLine().ToLower());
 
-           if (ChooseOperation == "enlist") {
-               String[] StudentInfo = new string[3];
-               Console.WriteLine("Enter your name, last name and GPA:");
+              if (ChooseOperation == "enlist") {
+                  enlistOperation();    
+                                        }
+              else if (ChooseOperation == "display") {
+                  displayOperation();
+                                 }
+              else
+              {
+                  InvalidOperationException();
+              }
+  }
 
-               for (int x = 0; x < 3; x++)
-               {
-                   StudentInfo[x] = Console.ReadLine();
-               }
 
-               StreamWriter SW = new StreamWriter(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
+ void enlistOperation() {
+      String[] StudentInfo = new string[3];  //new string [2]
+      Console.WriteLine("Enter your name, last name and GPA:");
+      for (int x = 0; x < 3; x++)
+      {
+          StudentInfo[x] = Console.ReadLine();
+      }
 
-               for (int x = 0; x < 3; x++)
-               {
-                   SW.WriteLine(StudentInfo[x]);
-               }
+      StreamWriter SW = new StreamWriter(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
 
-               SW.Close();
-               goto Start;
-           }
+      for (int x = 0; x < 3; x++)
+      {
+          SW.WriteLine(StudentInfo[x]);
+      }
+          SW.Close();
+      }
 
-           else if (ChooseOperation == "display")
-           {
-               string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
-               System.Console.WriteLine("Student Container displayed = ");
+ void displayOperation() {
 
-               foreach (string line in lines)
-               {
-                   Console.WriteLine(line);
-               }
+     string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
+     System.Console.WriteLine("Student Container displayed = ");
 
-               Console.WriteLine("Press any key to exit.");
-               System.Console.ReadKey();
-           }
+     foreach (string line in lines)
+     {
+         Console.WriteLine(line);
+     }
 
-           else {
-               Console.WriteLine("Type valid operation");
-               goto Start;
-           }
+     Console.WriteLine("Press any key to exit.");
+     System.Console.ReadKey();
+ }
+  
+void invalidOperation() {
+     Console.WriteLine("Type valid operation");
         }
-    }
+  }
 }
