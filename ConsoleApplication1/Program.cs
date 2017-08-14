@@ -22,7 +22,7 @@ namespace ConsoleApplication1
                                  }
               else
               {
-                  InvalidOperationException();
+                  InvalidOperationException(); //blabla
               }
   }
 
