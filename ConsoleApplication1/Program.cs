@@ -4,26 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
+using System.Collections; //potrebno za new arraylist
 
 namespace ConsoleApplication1
 {
     class Program
     {
-
         static void Main(string[] args)
-            {
-                Console.WriteLine("Please ENLIST or DISPLAY: ");
-                chooseOperation();
-            }
-
-        Student newStudent = new Student();      // makljaza sa klassama
-        newStudent.studentFirstName = ;
-
-        Operations newOperations = new Operations();
-
-        public static void chooseOperation()
         {
+            chooseOperation();
+        }
+
+        static void chooseOperation()
+        {
+            Console.WriteLine("Please ENLIST or DISPLAY: ");
             string userWish = (Console.ReadLine().ToLower());
+
             if (userWish == "enlist")
             {
                 enlistOperation();
@@ -38,46 +35,43 @@ namespace ConsoleApplication1
             }
         }
 
+    public static List<object> studentInfoList = new List<object>();
         static void enlistOperation()
-            {
-                String[] StudentInfo = new string[3];  //new string [2]
-                Console.WriteLine("Enter your name, last name and GPA:");  //student klasa
+        {
+            Student person = new Student();
 
-                    for (int x = 0; x < 3; x++)
-                {
-                StudentInfo[x] = Console.ReadLine();
-                }
+            Console.Write("Your name: ");
+            person.studentFirstName = Console.ReadLine(); //Console.Write("Your name is {0} {1}", person.studentFirstName, person.studentLastName);
+            studentInfoList.Add(person.studentFirstName);
 
-                StreamWriter SW = new StreamWriter(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
+            Console.Write("Your last name: ");
+            person.studentLastName = Console.ReadLine();
+            studentInfoList.Add(person.studentLastName);
 
-                    for (int x = 0; x < 3; x++)
-                {
-                    SW.WriteLine(StudentInfo[x]);
-                }
-                    SW.Close();
-            }
+            Console.Write("Your GPA: ");
+            person.studentGpa = Console.ReadLine(); //to.parse staviti jer ako se unese bilo koji znak osim broja apk se srusi, provjeriti tipove podataka
+                int number;
+                Int32.TryParse(person.studentGpa, out number);
+            studentInfoList.Add(person.studentGpa);
+
+            chooseOperation();
+        }
 
 
         static void displayOperation()
+        {
+            foreach (object info in studentInfoList)
             {
-
-                string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Windows7\Documents\GitHub\TaskLevel1\StudentContainer.txt");
-                System.Console.WriteLine("Student Container displayed = ");
-
-                foreach (string line in lines)
-            {
-                Console.WriteLine(line);
+                Console.WriteLine(info);
             }
-
-                Console.WriteLine("Press any key to exit.");
-                System.Console.ReadKey();
-            }
+            chooseOperation();
+        }
 
 
         static void invalidOperation()
-            {
-                Console.WriteLine("You typed invalid operation, try again: ");
-                chooseOperation();
-            }
-     }
+        {
+            Console.WriteLine("You typed invalid operation, try again: ");
+            chooseOperation();
+        }
+    }
 }
