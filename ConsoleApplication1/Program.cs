@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-using System.Collections; //potrebno za new arraylist
+using System.Collections;
 
 namespace ConsoleApplication1
 {
@@ -16,27 +16,27 @@ namespace ConsoleApplication1
             chooseOperation();
         }
 
-        static void chooseOperation()
-        {
-            Console.WriteLine("Please ENLIST or DISPLAY: ");
-            string userWish = (Console.ReadLine().ToLower());
 
-            if (userWish == "enlist")
-            {
-                enlistOperation();
-            }
-            else if (userWish == "display")
-            {
-                displayOperation();
-            }
-            else
-            {
-                invalidOperation();
-            }
+        public static void chooseOperation()
+        {
+            string userWish;
+            do {
+                Console.WriteLine("Please ENLIST or DISPLAY: ");
+                userWish = Console.ReadLine();
+
+                if (Models.Validation.operationNameValidation(userWish))
+                {
+                    if (userWish.ToLower() == Models.Operations.displayOperation) ;
+                    //displayOperacija();
+                    else if (userWish.ToLower() != Models.Operations.enlistOperation) ;
+                    enlistOperation();
+                }
+            } while (userWish.ToLower() != Models.Operations.displayOperation);
         }
 
-    public static List<object> studentInfoList = new List<object>();
-        static void enlistOperation()
+        public static List<object> studentInfoList = new List<object>();
+
+        public static void enlistOperation()
         {
             Student person = new Student();
 
@@ -49,28 +49,11 @@ namespace ConsoleApplication1
             studentInfoList.Add(person.studentLastName);
 
             Console.Write("Your GPA: ");
-            person.studentGpa = Console.ReadLine(); //to.parse staviti jer ako se unese bilo koji znak osim broja apk se srusi, provjeriti tipove podataka
-                int number;
-                Int32.TryParse(person.studentGpa, out number);
+            person.studentGpa = Console.ReadLine();
+            int number;
+            Int32.TryParse(person.studentGpa, out number);
             studentInfoList.Add(person.studentGpa);
 
-            chooseOperation();
-        }
-
-
-        static void displayOperation()
-        {
-            foreach (object info in studentInfoList)
-            {
-                Console.WriteLine(info);
-            }
-            chooseOperation();
-        }
-
-
-        static void invalidOperation()
-        {
-            Console.WriteLine("You typed invalid operation, try again: ");
             chooseOperation();
         }
     }
