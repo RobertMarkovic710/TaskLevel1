@@ -5,8 +5,10 @@ using System.Text;
 
     namespace ConsoleApplication1
 {
-    public class Person : Student
+    public abstract class Person
     {
-        public int studentId = 5;
+        public int ID { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
     }
 }

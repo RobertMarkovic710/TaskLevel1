@@ -5,22 +5,12 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    public class Student
+    public class Student : Person
     {
-        public string studentFirstName;
-        public string studentLastName;
-        public string studentGpa;
+        public Student(int id, string firstName, string lastName, float gpa)
+        {
+            //Models.
+        }
+        public float gpa { get; set; }
     }
 }
-
-
-/*public class Student : Person
-{
-    public static int godine = 5;
-    public List<int> integerList = new List<int>() { 1, 2, 3, 4, 5 };
-
-
-    // public int StudentGpa { get; set; }
-
-}*/
-//private static List<Student> studentes = new List<Student>();

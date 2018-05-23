@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Windows.Forms;
-using System.Collections;
 
 namespace ConsoleApplication1
 {
@@ -29,32 +26,14 @@ namespace ConsoleApplication1
                     if (userWish.ToLower() == Models.Operations.displayOperation) ;
                     //displayOperacija();
                     else if (userWish.ToLower() != Models.Operations.enlistOperation) ;
-                    enlistOperation();
+                    //enlistOperation();
                 }
             } while (userWish.ToLower() != Models.Operations.displayOperation);
         }
 
-        public static List<object> studentInfoList = new List<object>();
-
-        public static void enlistOperation()
+        public static void displayOperation()
         {
-            Student person = new Student();
-
-            Console.Write("Your name: ");
-            person.studentFirstName = Console.ReadLine(); //Console.Write("Your name is {0} {1}", person.studentFirstName, person.studentLastName);
-            studentInfoList.Add(person.studentFirstName);
-
-            Console.Write("Your last name: ");
-            person.studentLastName = Console.ReadLine();
-            studentInfoList.Add(person.studentLastName);
-
-            Console.Write("Your GPA: ");
-            person.studentGpa = Console.ReadLine();
-            int number;
-            Int32.TryParse(person.studentGpa, out number);
-            studentInfoList.Add(person.studentGpa);
-
-            chooseOperation();
+            List<Student> someStudent = Models.StudentContainer.Fetch();
         }
     }
 }
