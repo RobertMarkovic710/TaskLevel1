@@ -7,10 +7,13 @@ namespace ConsoleApplication1
 {
     public class Student : Person
     {
+        public float GPA { get; set; }
         public Student(int id, string firstName, string lastName, float gpa)
         {
-            //Models.
+            this.ID = id;
+            this.first_name = firstName;
+            this.last_name = lastName;
+            this.GPA = gpa;
         }
-        public float gpa { get; set; }
     }
 }

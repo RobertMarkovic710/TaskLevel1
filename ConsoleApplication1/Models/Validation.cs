@@ -12,8 +12,8 @@ namespace ConsoleApplication1.Models
     {
         const string validOperationName = "operationName";
         const string noKeywordsTyped = "noInputData";
-        const string invalidNameFormat = "wrongNameTyped"; //ime i prezime ima zajednicki
-        const string invalidLastNameFormat = "wrongLastName";
+        const string invalidNameFormat = "wrongFirstNameTyped";
+        const string invalidLastNameFormat = "wrongLastNameTyped";
         const string invalidGpaFormat = "wrongFormat";
         const string invalidGpaValue = "wrongValue";
 
@@ -27,10 +27,10 @@ namespace ConsoleApplication1.Models
                 case "noInputData":
                         Console.WriteLine("You need to insert something.");
                         break;
-                case "wrongNameTyped":
-                    Console.WriteLine("You typed invalid name format.");
+                case "wrongFirstNameTyped":
+                    Console.WriteLine("You typed invalid first name format.");
                     break;
-                case "wrongLastName":
+                case "wrongLastNameTyped":
                     Console.WriteLine("You typed invalid last name format.");
                     break;
                 case "wrongFormat":
@@ -42,7 +42,7 @@ namespace ConsoleApplication1.Models
             }
         }
 
-        public static bool operationNameValidation(string userWish)
+        public static bool operationValidation(string userWish)
         {
             if (string.IsNullOrEmpty(userWish))
             {
@@ -60,7 +60,65 @@ namespace ConsoleApplication1.Models
             }
         }
 
-        //public static bool 
+        public static bool firstNameValidation(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                showMessage(noKeywordsTyped);
+                return false;
+            }
+            else if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
+            {
+                showMessage(invalidNameFormat);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static bool lastNameValidation(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                showMessage(noKeywordsTyped);
+                return false;
+            }
+            else if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
+            {
+                showMessage(invalidLastNameFormat);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static bool gpaValidation (string value)
+        {
+            float gpa;
+            if (string.IsNullOrEmpty(value))
+            {
+                showMessage(noKeywordsTyped);
+                return false;
+            }
+            else if (!float.TryParse(value, out gpa))
+            {
+                showMessage(invalidGpaFormat);
+                return false;
+            }
+            else if (gpa < 1 || gpa > 5)
+            {
+                showMessage(invalidGpaValue);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
     }
 }
