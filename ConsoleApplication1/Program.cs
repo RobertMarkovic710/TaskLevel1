@@ -22,7 +22,7 @@ namespace ConsoleApplication1
                 {
                     if (userWish.ToLower() == Models.Operations.displayOperation)
                         displayOperation();
-                    else if (userWish.ToLower() != Models.Operations.enlistOperation)
+                    else if (userWish.ToLower() == Models.Operations.enlistOperation)
                         enlistOperation();
                 }
             } while (userWish.ToLower() != Models.Operations.displayOperation);
@@ -30,8 +30,8 @@ namespace ConsoleApplication1
 
         public static void displayOperation()
         {
-            int x = 0;
-            List<Student> students = Models.StudentContainer.Fetch();
+            int counter = 0;
+            List<Student> students = studentContainer.Fetch();
 
             if (!students.Any())
             {
@@ -41,8 +41,9 @@ namespace ConsoleApplication1
             {
                 foreach (Student s in students)
                 {
-                    x++;
-                    Console.WriteLine("{0}. {1}, {2}, {3}", x, s.first_name, s.last_name, s.GPA);
+                    counter++;
+                    Console.WriteLine("\nStudents in system: ");
+                    Console.WriteLine("{0}. {1}, {2} - {3}", counter, s.first_name, s.last_name, s.GPA);
                 }
 
             }
@@ -63,14 +64,14 @@ namespace ConsoleApplication1
 
             do
             {
-                Console.WriteLine("\nLast name: ");
+                Console.WriteLine("Last name: ");
                 lastName = Console.ReadLine();
                 state = Models.Validation.lastNameValidation(lastName);
             } while (!state);
 
             do
             {
-                Console.Write("\nGPA: ");
+                Console.Write("GPA: ");
                 stringGpa = Console.ReadLine(); //string jer unosis brojeve i znakove tj. tocku (4.6) i onda
                 state = Models.Validation.gpaValidation(stringGpa);//on to parsa u jedan format i brojeve i tocku
             } while (!state);

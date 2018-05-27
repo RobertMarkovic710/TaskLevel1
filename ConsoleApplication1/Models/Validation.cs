@@ -46,7 +46,7 @@ namespace ConsoleApplication1.Models
         {
             if (string.IsNullOrEmpty(userWish))
             {
-                showMessage(validOperationName);
+                showMessage(noKeywordsTyped);
                 return false;
             }
             else if (userWish.ToLower() != Operations.displayOperation && userWish.ToLower() != Operations.enlistOperation)
