@@ -8,7 +8,7 @@ namespace ConsoleApplication1.Models
 {
     class Operations
     {
-        public const string enlistOperation = "enlist";
-        public const string displayOperation = "display";
+        public const string EnlistOperation = "enlist";
+        public const string DisplayOperation = "display";
     }
 }
