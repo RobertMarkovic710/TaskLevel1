@@ -16,27 +16,27 @@ namespace ConsoleApplication1.Models
         const string invalidLastNameFormat = "wrongLastNameTyped";
         const string invalidGpaFormat = "wrongFormat";
         const string invalidGpaValue = "wrongValue";
-
+        
         public static void ShowMessage(string value)
         {
             switch (value)
             {
-                case "validOperationName":
+                case operationName:
                     Console.WriteLine("Operation non-existing, please use appropriate operation.");
                     break;
-                case "noInputData":
+                case noKeywordsTyped:
                         Console.WriteLine("You need to insert value.");
                         break;
-                case "wrongFirstNameTyped":
+                case invalidNameFormat:
                     Console.WriteLine("You typed invalid first name format.");
                     break;
-                case "wrongLastNameTyped":
+                case invalidLastNameFormat:
                     Console.WriteLine("You typed invalid last name format.");
                     break;
-                case "wrongFormat":
+                case invalidGpaFormat:
                     Console.WriteLine("You need to insert numerical value.");
                     break;
-                case "wrongValue":
+                case invalidGpaValue:
                     Console.WriteLine("Your GPA should be 1.0 - 5.0 number.");
                     break;
             }
@@ -67,7 +67,7 @@ namespace ConsoleApplication1.Models
                 ShowMessage(noKeywordsTyped);
                 return false;
             }
-            else if (!Regex.IsMatch(value, @"[a-zA-Z\\s]*")) //"^[a-zA-Z]+$" replaced
+            else if (!Regex.IsMatch(value, @"^[-a-zA-Z\s]+$")) //allows letters a-z, spaces and dashes
             {
                 ShowMessage(invalidNameFormat);
                 return false;
@@ -85,7 +85,7 @@ namespace ConsoleApplication1.Models
                 ShowMessage(noKeywordsTyped);
                 return false;
             }
-            else if (!Regex.IsMatch(value, @"[a-zA-Z\\s]*"))
+            else if (!Regex.IsMatch(value, @"^[-a-zA-Z\s]+$"))
             {
                 ShowMessage(invalidLastNameFormat);
                 return false;
