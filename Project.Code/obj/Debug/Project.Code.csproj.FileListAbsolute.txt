@@ -1,1 +1,2 @@
 C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.Code\bin\Debug\Project.Code.exe.config
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.Code\obj\Debug\Project.Code.csprojResolveAssemblyReference.cache

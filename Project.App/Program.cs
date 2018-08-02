@@ -16,20 +16,21 @@ namespace Project.App
             string userWish;
             do
             {
+                Project.Code.Operations; //example
                 Console.WriteLine("Please ENLIST or DISPLAY: ");
                 userWish = Console.ReadLine();
                 
                 if (Validation.OperationValidation(userWish))
                 {
-
-                    if (userWish.Equals(Models.Operations.DisplayOperation, StringComparison.InvariantCultureIgnoreCase))
+                    
+                    if (userWish.Equals(Operations.DisplayOperation, StringComparison.InvariantCultureIgnoreCase))
                         DisplayOperation(); 
 
-                    else if (userWish.Equals(Models.Operations.EnlistOperation, StringComparison.InvariantCultureIgnoreCase))
+                    else if (userWish.Equals(Operations.EnlistOperation, StringComparison.InvariantCultureIgnoreCase))
                         EnlistOperation();
 
                 }
-            } while (!userWish.Equals(Models.Operations.DisplayOperation, StringComparison.InvariantCultureIgnoreCase));
+            } while (!userWish.Equals(Operations.DisplayOperation, StringComparison.InvariantCultureIgnoreCase));
         }
 
         public static void DisplayOperation()

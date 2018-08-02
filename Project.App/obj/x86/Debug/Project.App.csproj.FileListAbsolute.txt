@@ -5,3 +5,5 @@ C:\Users\Robert\Documents\GitHub\TaskLevel1\ConsoleApplication1\bin\Debug\Consol
 C:\Users\Robert\Documents\GitHub\TaskLevel1\ConsoleApplication1\obj\x86\Debug\Project.App.csprojResolveAssemblyReference.cache
 C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\ConsoleApplication1.exe
 C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\Project.App.csprojResolveAssemblyReference.cache
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\bin\Debug\Project.App.exe.config
