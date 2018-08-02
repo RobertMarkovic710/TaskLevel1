@@ -5,12 +5,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace Project.App
 {
     class Program
     {
-        static Models.StudentContainer studentContainer = new Models.StudentContainer();
-
+        static StudentContainer studentContainer = new StudentContainer();
+        
         static void Main(string[] args)
         {
             string userWish;
@@ -19,7 +19,7 @@ namespace ConsoleApplication1
                 Console.WriteLine("Please ENLIST or DISPLAY: ");
                 userWish = Console.ReadLine();
                 
-                if (Models.Validation.OperationValidation(userWish))
+                if (Validation.OperationValidation(userWish))
                 {
 
                     if (userWish.Equals(Models.Operations.DisplayOperation, StringComparison.InvariantCultureIgnoreCase))
