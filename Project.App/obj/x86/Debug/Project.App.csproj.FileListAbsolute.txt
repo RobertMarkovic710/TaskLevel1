@@ -3,7 +3,11 @@ C:\Users\Robert\Documents\GitHub\TaskLevel1\ConsoleApplication1\obj\x86\Debug\Co
 C:\Users\Robert\Documents\GitHub\TaskLevel1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 C:\Users\Robert\Documents\GitHub\TaskLevel1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 C:\Users\Robert\Documents\GitHub\TaskLevel1\ConsoleApplication1\obj\x86\Debug\Project.App.csprojResolveAssemblyReference.cache
-C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\ConsoleApplication1.exe
-C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\ConsoleApplication1.pdb
 C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\Project.App.csprojResolveAssemblyReference.cache
 C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\bin\Debug\Project.App.exe.config
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\bin\Debug\Project.App.exe
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\bin\Debug\Project.App.pdb
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\bin\Debug\Project.Code.dll
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\bin\Debug\Project.Code.pdb
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\Project.App.exe
+C:\Users\Robert\Documents\GitHub\TaskLevel1\Project.App\obj\x86\Debug\Project.App.pdb
