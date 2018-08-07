@@ -8,13 +8,14 @@ namespace Project.Code
     public class StudentIdGenerator
     {
         private static StudentIdGenerator newInstance;
-        private int mIdCounter;
+        private int myIdCounter;
 
         protected StudentIdGenerator()
         {
-            this.mIdCounter = 0;
+            this.myIdCounter = 0;
         }
-        public static StudentIdGenerator getInstance()
+
+        public static StudentIdGenerator GetInstance()
         {
             if (newInstance == null)
             {
@@ -22,9 +23,10 @@ namespace Project.Code
             }
             return newInstance;
         }
-        public int generateID()
+
+        public int GenerateId()
         {
-            return this.mIdCounter++;
+            return this.myIdCounter++;
         }
     }
 }

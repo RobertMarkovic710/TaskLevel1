@@ -17,7 +17,7 @@ namespace Project.Code
         const string invalidLastNameFormat = "wrongLastNameTyped";
         const string invalidGpaFormat = "wrongFormat";
         const string invalidGpaValue = "wrongValue";
-        
+
         public static void ShowMessage(string value)
         {
             switch (value)
@@ -26,8 +26,8 @@ namespace Project.Code
                     Console.WriteLine("Operation non-existing, please use appropriate operation.");
                     break;
                 case noKeywordsTyped:
-                        Console.WriteLine("You need to insert value.");
-                        break;
+                    Console.WriteLine("You need to insert value.");
+                    break;
                 case invalidNameFormat:
                     Console.WriteLine("You typed invalid first name format.");
                     break;
@@ -45,12 +45,9 @@ namespace Project.Code
 
         public static bool OperationValidation(string userWish)
         {
-            if (string.IsNullOrEmpty(userWish))
-            {
-                ShowMessage(noKeywordsTyped);
-                return false;
-            }
-            else if (userWish.ToLower() != Operations.DisplayOperation && userWish.ToLower() != Operations.EnlistOperation)
+            CheckA(userWish);
+
+            if (userWish.ToLower() != Operations.DisplayOperation && userWish.ToLower() != Operations.EnlistOperation)
             {
                 ShowMessage(operationName);
                 return false;
@@ -63,49 +60,35 @@ namespace Project.Code
 
         public static bool FirstNameValidation(string value)
         {
-            if (string.IsNullOrEmpty(value))
+            CheckA(value);
+            if (CheckB(value))
             {
-                ShowMessage(noKeywordsTyped);
-                return false;
-            }
-            else if (!Regex.IsMatch(value, @"^[-a-zA-Z\s]+$")) //allows letters a-z, spaces and dashes
-            {
-                ShowMessage(invalidNameFormat);
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
         public static bool LastNameValidation(string value)
         {
-            if (string.IsNullOrEmpty(value))
-            {
-                ShowMessage(noKeywordsTyped);
-                return false;
-            }
-            else if (!Regex.IsMatch(value, @"^[-a-zA-Z\s]+$"))
-            {
-                ShowMessage(invalidLastNameFormat);
-                return false;
-            }
-            else
+            CheckA(value);
+            if (CheckB(value))
             {
                 return true;
             }
-        }
-
-        public static bool GpaValidation (string value)
-        {
-            float gpa;
-            if (string.IsNullOrEmpty(value))
+            else
             {
-                ShowMessage(noKeywordsTyped);
                 return false;
             }
-            else if (!float.TryParse(value, out gpa))
+        }
+
+        public static bool GpaValidation(string value)
+        {
+            float gpa;
+            CheckA(value); 
+            if (!float.TryParse(value, out gpa))
             {
                 ShowMessage(invalidGpaFormat);
                 return false;
@@ -121,5 +104,24 @@ namespace Project.Code
             }
         }
 
+        public static bool CheckA(string val)
+        {
+            if (string.IsNullOrEmpty(val))
+            {
+                ShowMessage(noKeywordsTyped);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool CheckB(string val)
+        {
+            if (!Regex.IsMatch(val, @"^[-a-zA-Z\s]+$")) //allows letters a-z, spaces and dashes
+            {
+                ShowMessage(invalidLastNameFormat);
+                return false;
+            }
+            return true;
+        }
     }
 }

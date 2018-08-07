@@ -83,7 +83,7 @@ namespace Project.App
             } while (!state);
 
             float.TryParse(stringGpa, out gpa);
-            Student student = new Student(StudentIdGenerator.getInstance().generateID(), firstName, lastName, gpa);
+            Student student = new Student(StudentIdGenerator.GetInstance().GenerateId(), firstName, lastName, gpa);
             studentContainer.Add(student);
         }
     }

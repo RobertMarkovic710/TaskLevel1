@@ -21,18 +21,6 @@ namespace Project.Code
             someStudent.Add(student);
         }
 
-        public void Remove(Student student)
-        {
-            for(int y=0; y<someStudent.Count; y++)
-            {
-                if (student.Equals(someStudent[y]))
-                {
-                    someStudent.RemoveAt(y);
-                    break;
-                }
-            }
-        }
-
         public void Sort()
         {
             if (someStudent != null)
